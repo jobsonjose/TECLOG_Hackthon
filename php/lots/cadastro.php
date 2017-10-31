@@ -26,8 +26,8 @@
                         echo "<td>". $result[$i]["validade"]."</td>";
                         echo "<td>". $result[$i]["quantidade_saida"]."</td>";
 	 ?>
-	 					<a href="edit.php">Edite</a>
-	 					<a href="delete.php">Delete</a>
+	 					<a href="edit.php?id=<?=$i?>">Edite</a>
+	 					<a href="delete.php?id-<?=$i?>">Delete</a>
 	 					</tr>
 	 <?php } ?>
 
