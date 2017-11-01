@@ -5,12 +5,24 @@ $descricao = $_POST['descricao'];
 $quantidade_atual = $_POST['quantidade_atual'];
 $preco_por_caixa = $_POST['preco_por_caixa'];
 $demanda = $_POST['demanda'];
-$data_entrada = $_POST['created'];
-$data_saida = $_POST['modified'];
 
-$add_stm = $pdo->prepare("INSERT INTO products (descricao, quantidade_atual, preco_por_caixa, demanda, created, modified)
-VALUES (?, ?, ?, ?, ?, ?)");
-$add_stm->execute(array($descricao,$quantidade_atual,$preco_por_caixa,$demanda,$data_entrada,$data_saida));
+$sql = "INSERT INTO products(descricao, quantidade_atual, preco_por_caixa, demanda) VALUES(:descricao, :quantidade_atual, :preco_por_caixa, :demanda)";
 
-header("location :index.php");
+$stmt = $pdo->prepare( $sql );
+$stmt->bindParam( ':descricao', $descricao );
+$stmt->bindParam( ':quantidade_atual', $quantidade_atual );
+$stmt->bindParam( ':preco_por_caixa', $preco_por_caixa );
+$stmt->bindParam( ':demanda', $demanda );
+ 
+$result = $stmt->execute();
+ 
+if (!$result) {
+    var_dump($stmt->errorInfo());
+    exit;
+}
+ 
+// echo $stmt->rowCount() . "linhas inseridas";
+
+
+header("location: index.php");
 ?>
