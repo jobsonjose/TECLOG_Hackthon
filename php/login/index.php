@@ -39,7 +39,7 @@ $sql = 'SELECT * FROM products';
   <body>
   <div class="container theme-showcase">
       <div class="page-header">
-        <h1>Listagem de Farmacos</h1>
+        <h1>Listagem de Fármacos</h1>
       </div>
       <div class="pull-right">
         <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#exampleModalcad">Cadastrar</button>
@@ -56,7 +56,7 @@ $sql = 'SELECT * FROM products';
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="http://localhost/teclog2/processaAdc.php" enctype="multipart/form-data">
+        <form method="POST" action="processaAdc.php" enctype="multipart/form-data">
           <div class="form-group">
             <label for="recipient-name" class="form-control-label">Descrição:</label>
             <input type="text" name="descricao" class="form-control" >
@@ -72,17 +72,7 @@ $sql = 'SELECT * FROM products';
           <div class="form-group">
             <label for="message-text" class="form-control-label">Demanda:</label>
             <input type="text" name="demanda" class="form-control" >
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="form-control-label">created:</label>
-            <input type="date" name="created" class="form-control" >
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="form-control-label">modified:</label>
-            <input type="date" class="form-control" name="modified" >
-          </div>
-          
+          </div>          
         <button type="submit" class="btn btn-primary">cadastrar</button>
         </form>
       </div>
@@ -91,7 +81,7 @@ $sql = 'SELECT * FROM products';
   </div>
 </div>
 
-
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
           <table class="table">
@@ -101,9 +91,7 @@ $sql = 'SELECT * FROM products';
                 <th>quantidade atual</th>
                 <th>Preço por caixa</th>
                 <th>Demanda</th>
-                <th>Created</th>
-                <th>Modified</th>
-                <th>ação</th>
+                <th>Ação</th>
 
               </tr>
             </thead>
@@ -115,8 +103,6 @@ $sql = 'SELECT * FROM products';
                   <td><?php echo $row['quantidade_atual']; ?></td>
                   <td><?php echo $row['preco_por_caixa']; ?></td>
                   <td><?php echo $row['demanda']; ?></td>
-                  <td><?php echo $row['created']; ?></td>
-                  <td><?php echo $row['modified']; ?></td>
                   <td>
                      <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['id']; ?>"
                      data-whateverdesc="<?php echo $row['descricao']; ?>"
@@ -133,6 +119,7 @@ $sql = 'SELECT * FROM products';
             </tbody>
           </table>
         </div>
+      </div>
     </div>
 
 
@@ -146,31 +133,22 @@ $sql = 'SELECT * FROM products';
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="http://localhost/teclog2/processa.php" enctype="multipart/form-data">
+        <form method="POST" action="processa.php" enctype="multipart/form-data">
           <div class="form-group">
             <label for="recipient-name" class="form-control-label">Descrição:</label>
             <input type="text" name="descricao" class="form-control" id="recipient-descricao">
           </div>
           <div class="form-group">
-            <label for="message-text" class="form-control-label">quantidade atual:</label>
+            <label for="message-text" class="form-control-label">Quantidade atual:</label>
             <input type="text" name="quantidade_atual" class="form-control" id="recipient-qtd">
           </div>
           <div class="form-group">
-            <label for="message-text" class="form-control-label">preço por caixa:</label>
+            <label for="message-text" class="form-control-label">Preço por caixa:</label>
             <input type="text" name="preco_por_caixa" class="form-control" id="recipient-preco">
           </div>
           <div class="form-group">
             <label for="message-text" class="form-control-label">Demanda:</label>
             <input type="text" name="demanda" class="form-control" id="recipient-demanda">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="form-control-label">created:</label>
-            <input type="date" name="created" class="form-control" id="recipient-created">
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="form-control-label">modified:</label>
-            <input type="date" class="form-control" name="modified" id="recipient-modified">
           </div>
           <input type="hidden" id="id" name="id">
           <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
