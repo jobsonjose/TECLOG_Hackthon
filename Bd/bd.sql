@@ -4,8 +4,6 @@ CREATE TABLE products(
 	quantidade_atual INTEGER NOT NULL,
 	preco_por_caixa FLOAT(5) NOT NULL,
 	demanda INTEGER NOT NULL,
-	created DATETIME not null,
-	modified DATETIME not null,
 	constraint id_pk primary key(id)
 );
 
