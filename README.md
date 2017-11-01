@@ -1,1 +1,0 @@
-# TECLOG_Hackthon
