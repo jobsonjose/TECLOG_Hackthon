@@ -73,15 +73,21 @@ foreach($_SESSION['Valor_Acumulado_Porcento'] as $chave => $valor ) {
 
     if ($valor <= 70 ) {
 
-		echo "Está classificado como A com: $valor% \n";
+		//echo "Está classificado como A com: $valor% \n";
+		$_SESSION['Valor_Acumulado_Porcento'][$chave] = "Classificado como A com: $valor";
+		echo $_SESSION['Valor_Acumulado_Porcento'][$chave] , "%\n";
 	}
 	if ($valor > 70 && $valor <= 90) {
 
-		echo "Está classificado como B com: $valor% \n";		
+		//echo "Está classificado como B com: $valor% \n";		
+		$_SESSION['Valor_Acumulado_Porcento'][$chave] = "Classificado como B com: $valor";
+		echo $_SESSION['Valor_Acumulado_Porcento'][$chave] , "%\n";
 	}
 	if ($valor > 90) {
 
-		echo "Está classificado como C com: $valor% \n";
+		//echo "Está classificado como C com: $valor% \n";
+		$_SESSION['Valor_Acumulado_Porcento'][$chave] = "Classificado como C com: $valor";
+		echo $_SESSION['Valor_Acumulado_Porcento'][$chave] , "%\n";
 	}
 }
 ?>
